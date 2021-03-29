@@ -8,7 +8,7 @@ use PayPalHttp\HttpRequest;
 
 class PlansListRequest extends HttpRequest
 {
-    function __construct($orderId)
+    function __construct()
     {
         parent::__construct("/v1/billing/plans?", "GET");
 
