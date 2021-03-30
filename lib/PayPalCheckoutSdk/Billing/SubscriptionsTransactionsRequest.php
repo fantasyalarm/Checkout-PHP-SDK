@@ -11,13 +11,12 @@ namespace PayPalCheckoutSdk\Billing;
 
 use PayPalHttp\HttpRequest;
 
-class SubscriptionReviseRequest extends HttpRequest
+class SubscriptionsTransactionsRequest extends HttpRequest
 {
     function __construct($sub_id)
     {
-        parent::__construct("/v1/billing/subscriptions/{sub_id}/revise?", "POST");
+        parent::__construct("/v1/billing/subscriptions/{sub_id}/transactions?", "POST");
         $this->path = str_replace("{sub_id}", urlencode($sub_id), $this->path);
         $this->headers["Content-Type"] = "application/json";
     }
-
 }
