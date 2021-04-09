@@ -13,10 +13,12 @@ use PayPalHttp\HttpRequest;
 
 class SubscriptionsTransactionsRequest extends HttpRequest
 {
-    function __construct($sub_id)
+    function __construct($sub_id, \DateTimeInterface $start_time)
     {
-        parent::__construct("/v1/billing/subscriptions/{sub_id}/transactions?", "POST");
+        parent::__construct("/v1/billing/subscriptions/{sub_id}/transactions?start_time={start_time}", "GET");
         $this->path = str_replace("{sub_id}", urlencode($sub_id), $this->path);
+        $this->path = str_replace("{start_time}", urlencode($start_time->format('Y-m-d\TH:i:s.u\Z')), $this->path);
         $this->headers["Content-Type"] = "application/json";
     }
+
 }
