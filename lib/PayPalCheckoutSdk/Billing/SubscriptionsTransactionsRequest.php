@@ -18,10 +18,10 @@ class SubscriptionsTransactionsRequest extends HttpRequest
         if(is_null($end_time)){
             $end_time = new \DateTime();
         }
-        parent::__construct("/v1/billing/subscriptions/{sub_id}/transactions?start_time={start_time}", "GET");
+        parent::__construct("/v1/billing/subscriptions/{sub_id}/transactions?start_time={start_time}&end_time={end_time}", "GET");
         $this->path = str_replace("{sub_id}", urlencode($sub_id), $this->path);
         $this->path = str_replace("{start_time}", urlencode($start_time->format('Y-m-d\TH:i:s\Z')), $this->path);
-        $this->path = str_replace("{start_time}", urlencode($end_time->format('Y-m-d\TH:i:s\Z')), $this->path);
+        $this->path = str_replace("{end_time}", urlencode($end_time->format('Y-m-d\TH:i:s\Z')), $this->path);
         $this->headers["Content-Type"] = "application/json";
     }
 
