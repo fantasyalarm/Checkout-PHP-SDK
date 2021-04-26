@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PayPalCheckoutSdk\Billing;
+namespace PayPalCheckoutSdk\Catalog;
 
 
 use PayPalHttp\HttpRequest;
